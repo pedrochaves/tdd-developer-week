@@ -1,0 +1,4 @@
+composer.lock
+vendor/
+developer-week.md
+tests/unit/UnitTester.php

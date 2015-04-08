@@ -1,0 +1,14 @@
+{
+    "require": {
+        "myclabs/php-enum": "~1.3"
+    },
+    "require-dev": {
+        "codeception/codeception": "~2",
+        "codeception/mockery-module": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Calculator\\": "src/Calculator"
+        }
+    }
+}
