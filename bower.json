@@ -1,0 +1,17 @@
+{
+  "name": "Calculator",
+  "version": "0.1",
+  "main": "public/index.php",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-css-only": "~3.3.4",
+    "angular": "~1.3.15"
+  }
+}

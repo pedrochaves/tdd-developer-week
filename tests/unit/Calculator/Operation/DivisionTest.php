@@ -11,10 +11,12 @@ class DivisionTest extends \Codeception\TestCase\Test
         $this->assertEquals(25, $operation->solve());
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Can't divide by zero
+     */
     public function testDivisionByZero()
     {
-        $this->setExpectedException('InvalidArgumentException');
-
         $operation = new Division(100, 0);
         $operation->solve();
     }

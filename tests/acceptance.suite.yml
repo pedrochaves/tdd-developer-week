@@ -1,0 +1,14 @@
+# Codeception Test Suite Configuration
+
+# suite for acceptance tests.
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver
+        - AcceptanceHelper
+    config:
+        WebDriver:
+            url: 'http://calculator.dev/'
+            browser: selenium2
+            capabilities:
+                javascriptEnabled: true

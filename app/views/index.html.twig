@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iMasters Developer Week</title>
+    <style>
+    .container { margin-top: 60px; width: 960px }
+    .btn { width: 20% }
+    .btn-group { width: 100% }
+    .btn-zero { width: 60% }
+    .row { margin: 10px auto }
+    #screen { width: 100%; height: 60px; border-bottom: 2px solid #ccc; display: inline-block; vertical-align: middle; font-size: 2em; padding-top: 12px }
+    </style>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+</head>
+<body ng-app="app">
+    <div class="container" ng-controller="CalculatorCtrl">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div id="screen">{{expression}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="btn-group">
+                    <button type="button" id="btn-number7" class="btn btn-primary btn-lg" ng-click="addNumber(7)">7</button>
+                    <button type="button" id="btn-number8" class="btn btn-primary btn-lg" ng-click="addNumber(8)">8</button>
+                    <button type="button" id="btn-number9" class="btn btn-primary btn-lg" ng-click="addNumber(9)">9</button>
+                    <button type="button" id="btn-op-plus" class="btn btn-primary btn-lg" ng-click="addOperator('+')">+</button>
+                    <button type="button" id="btn-del" class="btn btn-primary btn-lg" ng-click="del()">Del</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="btn-group">
+                    <button type="button" id="btn-number4" class="btn btn-primary btn-lg" ng-click="addNumber(4)">4</button>
+                    <button type="button" id="btn-number5" class="btn btn-primary btn-lg" ng-click="addNumber(5)">5</button>
+                    <button type="button" id="btn-number6" class="btn btn-primary btn-lg" ng-click="addNumber(6)">6</button>
+                    <button type="button" id="btn-op-minus" class="btn btn-primary btn-lg" ng-click="addOperator('-')">-</button>
+                    <button type="button" id="btn-clear" class="btn btn-primary btn-lg" ng-click="clear()">C</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="btn-group">
+                    <button type="button" id="btn-number1" class="btn btn-primary btn-lg" ng-click="addNumber(1)">1</button>
+                    <button type="button" id="btn-number2" class="btn btn-primary btn-lg" ng-click="addNumber(2)">2</button>
+                    <button type="button" id="btn-number3" class="btn btn-primary btn-lg" ng-click="addNumber(3)">3</button>
+                    <button type="button" id="btn-op-mult" class="btn btn-primary btn-lg" ng-click="addOperator('*')">*</button>
+                    <button type="button" id="btn-solve" class="btn btn-primary btn-lg" ng-click="solve()">=</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="btn-group">
+                    <button type="button" id="btn-number0" class="btn btn-primary btn-lg btn-zero" ng-click="addNumber(0)">0</button>
+                    <button type="button" id="btn-op-div" class="btn btn-primary btn-lg" ng-click="addOperator('/')">/</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/components/angular/angular.min.js?v=[[ date().timestamp ]]"></script>
+    <script src="/assets/js/src/stack.js?v=[[ date().timestamp ]]"></script>
+    <script src="/assets/js/src/calculator.js?v=[[ date().timestamp ]]"></script>
+    <script src="/assets/js/src/app.js?v=[[ date().timestamp ]]"></script>
+</body>
+</html>

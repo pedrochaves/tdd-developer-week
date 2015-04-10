@@ -1,0 +1,6 @@
+I WANT TO TEST THE EQUATION SOLVING API
+
+I send post '/api/calculator/solve'," ['expr' => '2 + 2']"
+I see response is json ""
+I see response code is "200"
+I see in database 'user_events'," ['type' => 'equation.solving']"

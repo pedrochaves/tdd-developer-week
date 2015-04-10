@@ -73,14 +73,6 @@ class Parser
             return trim($member);
         }, $members);
 
-        // If the first member is a negative number, replace the two first members
-        // for only one negative one
-        if ($members[0] === Operator::SUBTRACTION) {
-            array_shift($members);
-
-            $members[0] = Operator::SUBTRACTION . $members[0];
-        }
-
         return $members;
     }
 
@@ -107,7 +99,9 @@ class Parser
                     $op_counter++;
                 }
             } else {
-                $operations[$op_counter] = $this->factory->factoryByOperator(new Operator($member), $left, 0);
+                $operator = new Operator($member);
+
+                $operations[$op_counter] = $this->factory->factoryByOperator($operator, $left, 0);
             }
         }
 
@@ -121,11 +115,6 @@ class Parser
      */
     private function createEquation(array $operations)
     {
-        $equation = new Equation();
-        foreach ($operations as $operation) {
-            $equation->addOperation($operation);
-        }
-
-        return $equation;
+        return new Equation(...$operations);
     }
 }

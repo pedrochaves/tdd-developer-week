@@ -1,4 +1,11 @@
+.DS_Store
 composer.lock
 vendor/
 developer-week.md
+
+tests/_output/*
+tests/acceptance/AcceptanceTester.php
 tests/unit/UnitTester.php
+
+public/assets/components/
+node_modules/

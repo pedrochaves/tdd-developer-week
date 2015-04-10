@@ -6,7 +6,7 @@ use MyCLabs\Enum\Enum;
 
 class Operator extends Enum
 {
-    const SUM = '+';
+    const ADDITION = '+';
     const SUBTRACTION = '-';
     const MULTIPLICATION = '*';
     const DIVISION = '/';

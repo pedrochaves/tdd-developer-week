@@ -1,0 +1,6 @@
+I WANT TO TEST THE API WITH INVALID EXPRESSIONS
+
+I send post '/api/calculator/solve'," ['expr' => 'a + b']"
+I see response is json ""
+I see response code is "422"
+I see in database 'user_events'," ['type' => 'equation.error']"

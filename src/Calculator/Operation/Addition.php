@@ -2,7 +2,7 @@
 
 namespace Calculator\Operation;
 
-class Sum extends Operation
+class Addition extends Operation
 {
     public function solve()
     {

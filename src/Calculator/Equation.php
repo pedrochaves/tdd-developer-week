@@ -4,20 +4,22 @@ namespace Calculator;
 
 use Calculator\Operation\Operation;
 use Calculator\Operation\Subtraction;
-use Calculator\Operation\Sum;
+use Calculator\Operation\Addition;
 
 class Equation
 {
     private $operations = [];
 
-    public function addOperation(Operation $operation)
+    public function __construct(Operation ...$operations)
     {
-        $this->operations[] = $operation;
+        foreach ($operations as $operation) {
+            $this->operations[] = $operation;
+        }
     }
 
     public function solve()
     {
-        $operations = array_merge($this->operations);
+        $operations = array_values($this->operations);
         $len = count($operations);
         // Nothing to do here
         if ($len === 0) {
@@ -40,7 +42,7 @@ class Equation
 
             $next++;
             $operation = $operations[$current];
-            if ($operation instanceof Subtraction || $operation instanceof Sum) {
+            if ($operation instanceof Subtraction || $operation instanceof Addition) {
                 $previous = $current;
 
                 continue;

@@ -3,6 +3,7 @@
 namespace Calculator\Parser;
 
 use Calculator\Factory\OperationFactory;
+use Codeception\Util\Stub;
 
 class ParserTest extends \Codeception\TestCase\Test
 {
@@ -10,20 +11,19 @@ class ParserTest extends \Codeception\TestCase\Test
 
     public function _before()
     {
-        $factory = new OperationFactory();
-        $normalizer = new ExpressionNormalizer();
-        $validator = new ExpressionValidator();
+        $factory = Stub::make('Calculator\Factory\OperationFactory');
+        $normalizer = Stub::make('Calculator\Parser\ExpressionNormalizer');
+        $validator = Stub::make('Calculator\Parser\ExpressionValidator');
 
         $this->parser = new Parser($factory, $normalizer, $validator);
     }
 
+    /**
+     * @expectedException \Calculator\Exception\InvalidExpressionException
+     * @expectedExceptionMessage Could not parse "5 + 5a": has invalid characters
+     */
     public function testParsingThrowsExceptionOnInvalidExpr()
     {
-        $this->setExpectedException(
-            'Calculator\Exception\InvalidExpressionException',
-            'Could not parse "5 + 5a": has invalid characters'
-        );
-
         $this->parser->parse('5 + 5a');
     }
 
@@ -32,7 +32,7 @@ class ParserTest extends \Codeception\TestCase\Test
      */
     public function testParsing($expression, $expected_result)
     {
-        $equation = $this->parser->parse($expression);
+       $equation = $this->parser->parse($expression);
 
         $this->assertInstanceOf('Calculator\Equation', $equation);
         $this->assertEquals($expected_result, $equation->solve());
